@@ -120,3 +120,16 @@ onAuthStateChanged(auth, (user) => {
 signInWithPopup(auth, new GoogleAuthProvider());
 
 
+// Event listener för login-knappen, den finns inte ännu i HTML
+const loginBtn = document.getElementById("loginBtn");
+loginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, new GoogleAuthProvider())
+    .then((result) => {
+      const user = result.user;
+      console.log("User signed in:", user);
+    })
+    .catch((error) => {
+      console.error("Error signing in:", error);
+    });
+});
+
