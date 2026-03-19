@@ -64,7 +64,7 @@ postBtn.addEventListener("click", async () => {
   if (!userObj.name || !userObj.message) {
     alert("Please enter both username and message!");
     return;
-  }
+  } 
 
   const response = await postUser(userObj);
 
