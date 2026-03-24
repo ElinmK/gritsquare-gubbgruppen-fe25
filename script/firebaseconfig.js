@@ -105,13 +105,13 @@ export function displayAllUsers(users) {
     let timeText = "";
 
     if (user.createAt) {
-      const date = user.createdAt ? new date(user.createAt) : null;
+      const date = new Date(user.createdAt);
       timeText = date.toLocaleDateString("sv-SE");
     }
 
     div.innerHTML = `
       <span>${user.name}: ${user.message || "Inget meddelande"}</span>
-      <small>${date ? date.toLocaleDateString("sv-SE") : ""}</small>
+      <small>${timeText}</small>
     `;
 
     //  DRAG START
