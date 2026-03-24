@@ -33,6 +33,9 @@ export function displayAllUsers(users, sortFunction = sortUsersByCreatedAt) {
       "rounded-3",
       "mb-2"
     );
+    if (user.owner && user.owner !== "anonymous") {
+      div.classList.add("message-authenticated");
+    }
     div.setAttribute("draggable", true);
     div.dataset.key = key;
 

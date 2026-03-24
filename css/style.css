@@ -53,6 +53,24 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
+/* Messages posted by authenticated users */
+.message.message-authenticated {
+  background: rgba(255, 215, 80, 0.55) !important;
+  border-color: rgba(212, 175, 55, 0.8) !important;
+}
+.message.message-authenticated:hover {
+  background: rgba(255, 215, 80, 0.7) !important;
+}
+
+/* Own message (logged-in user) */
+.message.message-own {
+  background: rgba(212, 175, 55, 0.35);
+  border-color: rgba(212, 175, 55, 0.6) !important;
+}
+.message.message-own:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
 /* När man drar */
 .message.dragging {
   opacity: 0.5;
