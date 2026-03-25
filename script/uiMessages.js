@@ -118,7 +118,7 @@ export function displayAllUsers(
                     return;
                 }
 
-                sendReply("test", reply);
+                sendReply(key, reply);
                 console.log(reply);
             });
 
@@ -131,25 +131,25 @@ export function displayAllUsers(
         });
 
         div.innerHTML = `
-  <div class="message-content">
-    <div class="message-head">
-      <div><strong>${user.name}</strong>: ${user.message || "Inget meddelande"}</div>
-      <button class="favorite-btn ${isFavorite ? "is-favorite" : ""}" type="button" aria-label="Favoritmarkera meddelande">
-        ${isFavorite ? "★" : "☆"}
-      </button>
-    </div>
-    <div class="message-time-div rounded">
-      <small class="message-time">${timeText}</small>
-    </div>
-    <button class="like-btn">❤️ 0</button>
-    <section hidden class="reply-section mt-2">
-        <form class="flex"> 
-            <input name="reply-message" type="text"/>
-            <button  type="submit">Send Reply!</button>
-        </form>
-    </section>
-  </div>
-`;
+            <div class="message-content">
+                <div class="message-head">
+                <div><strong>${user.name}</strong>: ${user.message || "Inget meddelande"}</div>
+                <button class="favorite-btn ${isFavorite ? "is-favorite" : ""}" type="button" aria-label="Favoritmarkera meddelande">
+                    ${isFavorite ? "★" : "☆"}
+                </button>
+                </div>
+                <div class="message-time-div rounded">
+                <small class="message-time">${timeText}</small>
+                </div>
+                <button class="like-btn">❤️ 0</button>
+                <section hidden class="reply-section mt-2">
+                    <form class="flex"> 
+                        <input name="reply-message" type="text"/>
+                        <button  type="submit">Send Reply!</button>
+                    </form>
+                </section>
+            </div>
+            `;
         const likeBtn = div.querySelector(".like-btn");
         let likes = 0;
 
