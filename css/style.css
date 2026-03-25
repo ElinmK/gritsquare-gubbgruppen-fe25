@@ -248,6 +248,50 @@ body {
   --bs-nav-pills-link-active-bg: var(--accent) !important;
 }
 
+/* ====== Burger menu ====== */
+.burger-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  #navMenu {
+    padding-bottom: 0.5rem;
+  }
+
+  #navMenu .nav {
+    gap: 0.25rem;
+    width: 100%;
+  }
+
+  #navMenu .nav-item {
+    width: 100%;
+  }
+
+  #navMenu .nav-link,
+  #navMenu .btn {
+    width: 100%;
+    text-align: left;
+  }
+}
+
 .nav-link {
   color: var(--accent) !important;
 }
