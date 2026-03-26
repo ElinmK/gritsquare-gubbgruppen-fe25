@@ -110,6 +110,13 @@ body {
 .reply{
     width: 95%;
     margin-left: auto;
+    font-size: 0.85rem;
+    padding: 6px 10px !important;
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+
+.reply .message-time {
+    font-size: 0.75rem;
 }
 
 

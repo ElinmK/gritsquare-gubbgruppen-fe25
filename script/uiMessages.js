@@ -107,25 +107,28 @@ export function displayAllUsers(
 
             const form = e.currentTarget.querySelector("form");
 
-            form.addEventListener("click", (e) => {
-                e.stopPropagation();
-            });
+            if (form) {
+                form.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                });
 
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const data = new FormData(form);
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const data = new FormData(form);
 
-                const reply = data.get("reply-message");
-                const replyColor = document.getElementById("textColorPicker")?.value || "#000000";
+                    const reply = data.get("reply-message");
+                    const replyColor = document.getElementById("textColorPicker")?.value || "#000000";
 
-                if (!reply) {
-                    alert("dont send empty reply");
-                    return;
-                }
+                    if (!reply) {
+                        alert("dont send empty reply");
+                        return;
+                    }
 
-                sendReply(key, reply, replyColor);
-                console.log(reply);
-            });
+                    const replyUsername = document.getElementById("usernameInput")?.value?.trim() || "Anonymous";
+                    sendReply(key, reply, replyColor, replyUsername);
+                    console.log(reply);
+                });
+            }
 
             const replySection =
                 e.currentTarget.querySelector(".reply-section");
@@ -148,15 +151,19 @@ export function displayAllUsers(
                 </div>
                 <button class="like-btn">❤️ 0</button>
                 <section hidden class="reply-section mt-2">
-                    <form class="flex"> 
+                    ${window.currentUserId
+                        ? `<form class="flex"> 
                         <input name="reply-message" type="text"/>
-                        <button  type="submit">Send Reply!</button>
-                    </form>
+                        <button type="submit">Send Reply!</button>
+                    </form>`
+                        : `<p class="text-muted small">You must be signed in to reply.</p>`
+                    }
                 </section>
-            </div>            
+            </div>
+            <div class="replies-container"></div>
             `;
 
-        const replyDiv = document.createElement("div");
+        const replyDiv = div.querySelector(".replies-container");
         const likeBtn = div.querySelector(".like-btn");
         let likes = 0;
 
@@ -189,7 +196,7 @@ export function displayAllUsers(
         });
         div.addEventListener("dragend", () => div.classList.remove("dragging"));
 
-        messagesList.append(div, replyDiv);
+        messagesList.append(div);
         console.log(replies);
         renderReplies(replies, key, replyDiv);
     });

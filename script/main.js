@@ -76,7 +76,6 @@ export const renderReplies = async (replies, parent_id, repliesDiv) => {
                 "reply",
                 "list-group-item",
                 "list-group-item-action",
-                "bg-white",
                 "text-dark",
                 "border-secondary",
                 "rounded-3",
@@ -84,7 +83,7 @@ export const renderReplies = async (replies, parent_id, repliesDiv) => {
             );
 
             replyDiv.innerHTML = `
-            <p style="color: ${element.color || '#000000'}">${element.message}</p>
+            <p><strong>${element.name || "Anonymous"}</strong>: <span style="color: ${element.color || '#000000'}">${element.message}</span></p>
                 </div>
                 <div class="message-time-div rounded">
                 <small class="message-time">${new Date(element.createdAt).toLocaleString("sv-SE")}</small>
