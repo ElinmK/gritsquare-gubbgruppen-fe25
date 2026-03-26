@@ -115,10 +115,15 @@ body {
     opacity: 0;
 }
 
-.message:hover .message-time-div{
+.message:hover > .message-content > .message-time-div,
+.reply:hover .message-time-div {
     opacity: 1;
     transition: opacity 0.5s ease;
     transition-delay: 0.5s;
+}
+
+.message:has(.reply:hover) > .message-content > .message-time-div {
+    opacity: 0;
 }
 
 .reply{

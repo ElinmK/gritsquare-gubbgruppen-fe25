@@ -167,7 +167,8 @@ export function displayAllUsers(
         const likeBtn = div.querySelector(".like-btn");
         let likes = 0;
 
-        likeBtn.addEventListener("click", () => {
+        likeBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
             likes++;
             likeBtn.textContent = `❤️ ${likes}`;
 
